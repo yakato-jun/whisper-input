@@ -1,0 +1,6 @@
+pynput
+sounddevice
+numpy
+openai
+pyperclip
+# tkinter is a stdlib module; install system package if missing (e.g., python3-tk on Debian/Ubuntu)
