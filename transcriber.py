@@ -5,7 +5,7 @@ from openai import OpenAI
 
 
 class Transcriber:
-    def __init__(self, api_key: str, model: str = "whisper-1"):
+    def __init__(self, api_key: str, model: str = "gpt-4o-transcribe"):
         self._client = OpenAI(api_key=api_key)
         self.model = model
 

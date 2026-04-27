@@ -61,7 +61,7 @@ Settings can be configured via environment variables or `config.json`:
 | Trigger Key | `VOICE_INPUT_TRIGGER` | `ctrl_r` | Key to start/stop recording |
 | Mode | `VOICE_INPUT_MODE` | `hold` | `hold` or `toggle` |
 | Auto Paste | `VOICE_INPUT_AUTO_PASTE` | `false` | Auto-paste transcribed text |
-| Model | `VOICE_INPUT_MODEL` | `whisper-1` | Whisper model to use |
+| Model | `VOICE_INPUT_MODEL` | `gpt-4o-transcribe` | Transcription model (e.g. `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, `whisper-1`) |
 
 ### config.json example
 

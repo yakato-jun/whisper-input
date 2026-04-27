@@ -9,7 +9,7 @@ DEFAULT_TRIGGER_KEY = "ctrl_r"
 DEFAULT_MODE = "hold"
 DEFAULT_SAMPLE_RATE = 16000
 DEFAULT_AUTO_PASTE = False
-DEFAULT_MODEL = "whisper-1"
+DEFAULT_MODEL = "gpt-4o-transcribe"
 VALID_MODES = {"hold", "toggle"}
 
 
