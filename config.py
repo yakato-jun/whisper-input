@@ -9,7 +9,9 @@ DEFAULT_TRIGGER_KEY = "ctrl_r"
 DEFAULT_MODE = "hold"
 DEFAULT_SAMPLE_RATE = 16000
 DEFAULT_AUTO_PASTE = False
-DEFAULT_MODEL = "gpt-4o-transcribe"
+DEFAULT_MODEL = "whisper-1"
+DEFAULT_FORMATTER_MODEL = "gpt-5.4-mini"
+DEFAULT_REASONING_EFFORT = "low"
 VALID_MODES = {"hold", "toggle"}
 
 
@@ -21,6 +23,8 @@ class AppConfig:
     sample_rate: int = DEFAULT_SAMPLE_RATE
     auto_paste: bool = DEFAULT_AUTO_PASTE
     model: str = DEFAULT_MODEL
+    formatter_model: str = DEFAULT_FORMATTER_MODEL
+    reasoning_effort: str = DEFAULT_REASONING_EFFORT
 
     @property
     def is_hold_mode(self) -> bool:
@@ -44,6 +48,14 @@ def load_config(config_path: str | Path = "config.json") -> AppConfig:
     sample_rate_raw = env.get("VOICE_INPUT_SAMPLE_RATE", data.get("sample_rate", DEFAULT_SAMPLE_RATE))
     auto_paste_raw = env.get("VOICE_INPUT_AUTO_PASTE", data.get("auto_paste", DEFAULT_AUTO_PASTE))
     model = env.get("VOICE_INPUT_MODEL", data.get("model", DEFAULT_MODEL))
+    formatter_model = env.get(
+        "VOICE_INPUT_FORMATTER_MODEL",
+        data.get("formatter_model", DEFAULT_FORMATTER_MODEL),
+    )
+    reasoning_effort = env.get(
+        "VOICE_INPUT_REASONING_EFFORT",
+        data.get("reasoning_effort", DEFAULT_REASONING_EFFORT),
+    )
 
     if mode not in VALID_MODES:
         raise ValueError(f"Invalid mode '{mode}'. Use one of: {', '.join(sorted(VALID_MODES))}.")
@@ -80,4 +92,6 @@ def load_config(config_path: str | Path = "config.json") -> AppConfig:
         sample_rate=sample_rate,
         auto_paste=auto_paste,
         model=model,
+        formatter_model=formatter_model,
+        reasoning_effort=reasoning_effort,
     )

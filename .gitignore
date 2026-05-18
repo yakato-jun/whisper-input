@@ -22,6 +22,9 @@ Thumbs.db
 assets/*.wav
 .env
 
+# Private prompt files (filename starting with underscore)
+prompts/_*.md
+
 # Serena
 .serena/
 
